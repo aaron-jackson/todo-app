@@ -16,6 +16,12 @@ window.onload = () => {
 };
 
 
+/**
+ * Adds an item to the list.
+ *
+ * @param {Event} e - The event object.
+ * @return {boolean} Returns false if the item is not added to the list, otherwise true.
+ */
 function addItem(e) {
     e.preventDefault();
 
@@ -61,5 +67,47 @@ function addItem(e) {
 
     items.appendChild(li);
 
+    }
+    
+    /**
+     * Removes an item from the list.
+     *
+     * @param {Event} e - The event object.
+     * @return {undefined} This function does not return anything.
+     */
+
+    function removeItem(e) {
+        e.preventDefault();
+        if (e.target.classList.contains("delete")) {
+            if (confirm("Are you sure?")) {
+
+                let li = e.target.parentNode;
+                items.removeChild(li);
+
+                document.getElementById("lblsuccess").innerHTML = "Text deleted successfully";
+                document.getElementById("lblsucess").style.display = "block";
+
+                setTimeout(function() {
+                    document.getElementById("lblsuccess").style.display = "none";
+                }, 2000);
+
+            }
+        }
+        if (e.target.classList.contains("edit")) {
+            document.getElementById("item").value = e.target.parentNode.childNodes[0].data;
+            submit.value = "Save";
+            editItem = e;
+        }
+    }
+
+
+/**
+ * Toggles the button's disabled state in the DOM.
+ *
+ * @param {Object} ref - The reference to the DOM element.
+ * @param {string} btnID - The ID of the button.
+ */
+    function toggleBttn(ref, btnID) {
+        document.getElementById(btnID).disabled = false;
     }
 
