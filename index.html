@@ -11,6 +11,40 @@
     <title>To-Do List</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <header>
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-12">
+                    <h1>To-Do List</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <h3>Add Items</h3>
+
+                <label id="lblsuccess" class="text-success" style="display: none;"></label>
+
+                <form id="addForm">
+                    <div class="row">
+                        <div class="col-7">
+                            <input type="text" name="item" id="item" onkeyup="toggleBttn(this, 'submit')" class="form-control">
+                        </div>
+                        <div class="col-5">
+                            <input type="submit" class="btn btn-dark" id="submit" value="Submit" disabled>
+                        </div>
+                    </div>
+                </form>
+
+                <h2>Tasks</h2>
+
+                <form id="taskForm">
+                    <ul class="list-group" id="items"></ul>
+                </form>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
